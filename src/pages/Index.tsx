@@ -256,6 +256,69 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4 text-secondary">
+            Отзывы наших клиентов
+          </h2>
+          <p className="text-center text-muted-foreground text-lg mb-12 max-w-2xl mx-auto">
+            Более 50 компаний успешно прошли через программу преемственности
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                name: "Алексей Морозов",
+                position: "Собственник производственной компании",
+                company: "Оборот 800 млн ₽",
+                text: "За 8 месяцев работы с IMPACT SCHOOL мы создали систему управления, которая позволила мне сфокусироваться на стратегии. Теперь бизнес растет на 30% в год без моего постоянного участия в операционке.",
+                rating: 5
+              },
+              {
+                name: "Ирина Соколова",
+                position: "CEO сети медицинских клиник",
+                company: "15 филиалов",
+                text: "Благодаря программе преемственности я подготовила управляющих для каждого филиала. Качество услуг не просело, а выручка выросла на 22%. Команда работает самостоятельно.",
+                rating: 5
+              },
+              {
+                name: "Дмитрий Волков",
+                position: "Основатель IT-компании",
+                company: "Команда 120 человек",
+                text: "Передача управления сыну казалась невозможной задачей. С помощью экспертов IMPACT SCHOOL мы выстроили плавный переход за год. Бизнес сохранил все ключевые клиенты и показатели.",
+                rating: 5
+              }
+            ].map((review, index) => (
+              <Card 
+                key={index}
+                className="p-6 hover:shadow-xl transition-all duration-300 animate-fade-in flex flex-col"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Icon key={i} name="Star" className="text-yellow-500 fill-yellow-500" size={18} />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-6 flex-1 italic">
+                  "{review.text}"
+                </p>
+                <div className="border-t pt-4">
+                  <p className="font-heading font-semibold text-secondary">
+                    {review.name}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {review.position}
+                  </p>
+                  <p className="text-xs text-primary font-medium mt-1">
+                    {review.company}
+                  </p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-gradient-to-br from-secondary to-primary text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
